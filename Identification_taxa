@@ -1,3 +1,82 @@
 
 
-Code R utilisable pour l'identification des groupes sur une phylogénie non-annotée.
+# Code R utilisable pour l'identification des groupes sur une phylogénie non-annotée.
+
+
+#     SCRIPT D IDENTIFICATION POUR LES SPECIMENS DANS UN ARBRE PHYLOGENETIQUE
+# DONNE LA COMPOSITION DU CLADE GRACE A LA RECHERCHE DANS LA BASE DE DONNEES ASSOCIEE
+library("stringr")
+library("stringi")
+setwd("//home//user//Bureau//id.phylo")
+
+# Ce script R prends pour 4 arguments : 
+# (1) le titre du fichier texte contenant les spécimens à assigner a un genre. 
+# (2) le nom du fichier de sortie contenant la proportion de chaque genre dans
+# le clade analysé.
+# (3) Le nom du genre présumé pour ce clade : Osmundea (premiere lettre en majuscule!)
+# (4) Un booléen spécifiant la création d'un fichier contenant les spécimens 
+# n'appartenant pas au genre présumé : TRUE ou FALSE.
+
+# Pour exécuter ce script depuis le terminal taper : 
+# R CMD BATCH --slave "--args fichier_texte.txt fichier_sortie Osmundea TRUE" id.phylo.R id.phylo.log
+
+# Pour exécuter le script sans créer de message d'exécution de R taper : 
+# /dev/null à la place de id.phylo.log
+
+variable <- commandArgs(trailingOnly=TRUE)
+out <- variable[2]
+genus <- variable[3]
+bool <- variable[4]
+
+# La base de données dans laquelles sera recherchée les informations nécessaires pour la comparaison, input :
+input <- read.csv("//home//user//Bureau//data//data_merge3//data_merge3.csv",sep=';',quote ="")
+input2 <- readLines(as.character(variable[1]))
+id <- data.frame(input[,1:2])
+id2 <- data.frame(input2)
+
+# On retire les doublons du jeu de données :
+id <- id[!duplicated(id),]
+id2 <- id2[!duplicated(id2),]
+
+id2 <- data.frame(id2)
+names(id) <- "id"
+names(id2) <- "id"
+
+# On compare les jeux de données :
+# tab_comp <- merge(id2, id, by="id", all = T)
+tab_comp <- merge(id2, id, by="id", all.x = T)
+tab_comp <- tab_comp[!duplicated(tab_comp[,1]),]
+
+# On donne les pourcentages de chaque genre présents dans le jeu de données :
+etc <- round(table(tab_comp[,2])/length(tab_comp[,2]), digits=2)
+
+# On exporte ces pourcentages dans le fichier de sortie "out" :
+write.table(etc, file = as.character(out), append = FALSE, quote = TRUE, sep = ";",
+            eol = "\n", na = "NA", dec = ".", row.names = F,
+            col.names = F, qmethod = c("escape", "double"),
+            fileEncoding = "")
+
+out.genus <- function(Tab){
+  if( Tab!=as.character(genus) || is.na(Tab) ){
+    res <- TRUE
+  }else{res <- FALSE}
+  res
+}
+pos <- NULL
+
+for(i in 1:length(tab_comp[,2])){
+  posi <- out.genus(tab_comp[i,2])  
+  pos <- c(pos,posi)  
+}
+
+dif <- tab_comp[pos, ]
+out2 <- paste("not.", as.character(genus),".csv", sep="")
+
+if(bool == T){
+  write.table(dif, file = as.character(out2), append = FALSE, quote = TRUE, sep = ";",
+              eol = "\n", na = "NA", dec = ".", row.names = F,
+              col.names = F, qmethod = c("escape", "double"),
+              fileEncoding = "")
+}else{}
+
+
