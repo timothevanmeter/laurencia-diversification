@@ -1,4 +1,4 @@
-# laurencia-diversification
+# Diversification spatio-temporelle au sein du *complexe* Laurencia
 - Projet d'article sur la diversification au sein du *complexe* d'algues rouges Laurencia.
 - Donnees et scripts provenant du stage de **Timothe Van Meter** sous la driection de **Line LeGall** et **Florence Rousseau** au sein de l'equipe du MHNH.
 
