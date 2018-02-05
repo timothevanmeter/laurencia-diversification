@@ -5,7 +5,7 @@
 ### Guide
 
 Les scripts R pour l'ensemble du stage sont disponibles dans le dossier [r-code](/timothevanmeter/tree/laurencia-diversification/r-code)
-Le fichier [READ.ME](/laurencia-diversification/blob/r-code/READ.ME) fournit la liste des scripts et leurs instructions d'utilisations.
+Le fichier [READ.ME](https://github.com/timothevanmeter/laurencia-diversification/blob/r-code/READ.ME) fournit la liste des scripts et leurs instructions d'utilisations.
 
 
 ### To create a new folder with the r code:
