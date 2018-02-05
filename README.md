@@ -1,7 +1,16 @@
 # laurencia-diversification
-Projet d'article sur la diversification au sein du genre d'algues rouges Laurencia.
+- Projet d'article sur la diversification au sein du *complexe* d'algues rouges Laurencia.
+- Donnees et scripts provenant du stage de **Timothe Van Meter** sous la driection de **Line LeGall** et **Florence Rousseau** au sein de l'equipe du MHNH.
 
-Pour rendre le projet il faudra inclure un fichier LICENSE, donnant les termes selon lesquels le contenu peut-être utilisé,
-mais aussi un fichier git.ignore permettant de ne présenter sur le projet que les documents intéressant pour les collaborateurs.
+### Guide
 
-Il faut penser a obtenir des comptes github pour l'ensemble des collaborateurs pour partager les documents.
+Les scripts R pour l'ensemble du stage sont disponibles dans le dossier [r-code](laurencia-diversification/r-code)
+Le fichier [READ.ME](laurencia-diversification/r-code/READ.ME) fournit la liste des scripts et leurs instructions d'utilisations.
+
+
+### To create a new folder with the r code:
+Reminder, git doesn't store empty folders.
+- First create the new READ.ME file for the r code
+- Run (from terminal) git add doc or git add doc/READ.ME and the folder will be added to your local repo once you've committed (and appear on github once you've pushed it)
+- To push the folder use the following command: git push origin master
+"origin" being the default name for the remote repository and "master" being the default name of your branch.
