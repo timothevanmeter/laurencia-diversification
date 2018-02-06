@@ -31,4 +31,4 @@ Chacun des scripts suivants ont été écris pour un format particulier
 ### Aide
 
 Je peux répondre aux questions concernant l'utilisation des scripts. Dans certains cas, préciser dans les descritpions, je n'en suis pas l'auteur et il vaut s'adresser directement à l'auteur.
-- Mon adresse mail: [timothe.vm@gmail.com](timothe.vm@gmail.com)
+- Pour me contacter utiliser l'adresse sur mon [profil github](https://github.com/timothevanmeter).
