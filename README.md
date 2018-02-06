@@ -19,8 +19,8 @@ Chacun des scripts suivants ont été écris pour un format particulier
 
 ## Codes pour les données géographiques
 
-- Script écrit par Elizabeth J. Sbrocco pour extraire d'un raster MARSPEC les données d'une zone géographique précise: [code](Sbrocco script.R)
-- Extrait les données climatiques pour chaque spécimen ayant une localisation (lat, long) à partir d'un raster MARSPEC. Le code recherche pour les données manquantes, la cellule la plus proche possédant une valeur: [code](extraction_points_raster.R)
+- Script écrit par Elizabeth J. Sbrocco pour extraire d'un raster MARSPEC les données d'une zone géographique précise: [code](Sbrocco_script.R)
+- Extrait les données climatiques pour chaque spécimen ayant une localisation (lat, long) à partir d'un raster MARSPEC. Le code recherche pour les données manquantes, la cellule la plus proche possédant une valeur: [code](extraction_points_marspec.R)
 - Produit une carte (fond de carte nécessaire!) avec les localisations de spécimens (données lat, long) : [code](plotmap.R)
 
 
